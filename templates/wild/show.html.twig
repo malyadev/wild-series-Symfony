@@ -3,7 +3,7 @@
 {% block body %}
     <div class="container-fluid">
         {% if not slug %}
-            <h1>Aucune série sélectionnée, veuillez choisir une série</h1>
+            <h1>Aucune série sélectionnée, veuillez choisir une série.</h1>
         {% else %}
             <h1>{{ slug | replace({'-': ' '}) | title }}</h1>
         {% endif %}
