@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All programs from {{ category.name }}{% endblock %}
+
+{% block body %}
+    <div class="container text-center">
+        <h1>Les 3 dernières séries de la catégorie <span class="badge badge-primary">{{ category.name }}</span> </h1>
+    </div>
+    {% for program in programs %}
+        <div class="row my-5 ml-5">
+            <div class="col-8">
+                <h2>{{ program.id }} / {{ program.title }}</h2>
+                <p>{{ program.summary }}</p>
+            </div>
+            <div class="col-4">
+                <img class="" style="width: 100pt" src="{{program.poster}}" alt="{{ program.title }} poster">
+            </div>
+        </div>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}
