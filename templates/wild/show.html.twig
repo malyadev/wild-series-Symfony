@@ -4,7 +4,7 @@
 {% block body %}
 
     <div class="media">
-        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <img class="align-self-start mr-3" style="width: 100pt" src="{{program.poster}}" alt="{{ program.title }} poster">
         <div class="media-body">
             <h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
@@ -13,7 +13,7 @@
     </div>
 
     <a href="{{ path('wild_index') }}">
-        Retour à l'accueil
+        Retour à l'ensemble des programmes
     </a>
 
 {% endblock %}
