@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ episode.title }}{% endblock %}
+
+{% block body %}
+    <div class="container pt-3">
+        <div class="row d-flex flex-column">
+            <p>Saison {{ season.number }} de <a href="{{ path('show_by_program', {slug:program.title} )}}">{{ program.title }}</a></p>
+            <h1 class="mt-0 text-center">{{ episode.number }}. {{ episode.title }}</h1>
+            <h3 class="text-center mt-4">Synopsis</h3>
+            <p class="text-center font-italic">“ {{ episode.synopsis }} “</p>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-5">
+            <a type="button" class="btn btn-outline-dark" href="{{ path('show_by_season', {id:season.id} )}}">Retour à la saison</a>
+        </div>
+    </div>
+    <p></p>
+{% endblock %}

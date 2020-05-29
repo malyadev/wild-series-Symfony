@@ -20,7 +20,7 @@
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-danger text-center mb-3"> Liste des épisodes </li>
                     {% for episode in episodes %}
-                        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <a href="{{ path('show_episode', {id:episode.id} )}}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                             <span class="badge badge-primary badge-pill">{{ episode.number }}</span> {{ episode.title }}
                         </a>
                     {% endfor %}
