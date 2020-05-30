@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}Wild Séries - Add a Category{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-5"> Ajouter une nouvelle catégorie</h1>
+
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_row(form.name)}}
+            <button type="submit" name="btnSearch" class="btn btn-primary">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+
+    <h2 class="text-center mt-5">Catégories existantes</h2>
+
+    <div class="row d-flex justify-content-center">
+        <div class="list-group">
+            {% for category in categories %}
+                <a href="{{ path('show_category', {'categoryName':category.name | lower |striptags|raw}) }}" type="button" class="btn btn-outline-primary my-1">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
