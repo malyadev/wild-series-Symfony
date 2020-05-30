@@ -6,9 +6,14 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\CategoryType;
+use App\Form\ProgramSearchType;
+use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 
 Class WildController extends AbstractController
 {
@@ -16,9 +21,10 @@ Class WildController extends AbstractController
      * Show all rows from Program’s entity
      *
      * @Route("/wild", name="wild_index")
-     * @return Response A response instance
+     * @param Request $request
+     * @return Response
      */
-    public function index(): Response
+    public function index(Request $request, ProgramRepository $programRepository): Response
     {
         $programs = $this->getDoctrine()
         ->getRepository(Program::class)
@@ -29,9 +35,19 @@ Class WildController extends AbstractController
                 'No program found in pprogram\'s table.'
             );
         }
+
+        $form = $this->createForm(ProgramSearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $data = $form->getData();
+            $programs = $programRepository ->searchProgram($data);
+        }
+
         return $this->render('wild/index.html.twig', [
             'website' => 'Wild Séries',
-            'programs'=> $programs
+            'form' => $form->createView(),
+            'programs'=> $programs,
         ]);
     }
 
@@ -70,7 +86,7 @@ Class WildController extends AbstractController
      * Getting all programs sort by category
      *
      * @param string $categoryName
-     * @Route("/wild/category/{categoryName<^[a-z0-9-]+$>}", name="show_category")*
+     * @Route("/wild/category/{categoryName<^/(((l|d|qu|jusqu)(&#39;|'))?)([a-zA-Z&;]{5,50})/", name="show_category")*
      * @return Response
      */
     public function showByCategory(string $categoryName)
