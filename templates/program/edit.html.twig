@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Program{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center">Modifier la série</h1>
+            {{ include('program/_form.html.twig', {'button_label': 'Modifier'}) }}
+        <div class="row d-flex justify-content-between mt-5">
+            <a href="{{ path('program_index') }}" type="button" class="btn btn-outline-dark">Retour à toutes les séries</a>
+            {{ include('program/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}
