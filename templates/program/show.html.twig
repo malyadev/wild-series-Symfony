@@ -30,7 +30,7 @@
         <div class="row d-flex justify-content-around mt-5">
             <a href="{{ path('program_index') }}" type="button" class="btn btn-outline-dark">Retour à toutes les séries</a>
 
-            <a type="button" class="btn btn-outline-warning" href="{{ path('program_edit', {'id': program.id}) }}">Modifier la série</a>
+            <a type="button" class="btn btn-outline-warning" href="{{ path('program_edit', {'slug': program.slug}) }}">Modifier la série</a>
 
             {{ include('program/_delete_form.html.twig') }}
         </div>
@@ -40,7 +40,7 @@
         <div class="row text-center">
             <ul>
                 {% for actor in program.actors %}
-                <a href="{{ path('show_actor', {'id' : actor.id }) }}">
+                <a href="{{ path('actor_show', {'slug': actor.slug}) }}">
                     <li>{{ actor.name }} </li>
                 </a>
                 {% else %}
