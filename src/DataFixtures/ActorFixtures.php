@@ -42,6 +42,8 @@ class ActorFixtures extends Fixture implements DependentFixtureInterface
         foreach (self::ACTORS as $name => $data) {
             $actor = new Actor();
             $actor->setName($name);
+            $slug = $slugify->generate($actor->getName());
+            $actor->setSlug($slug);
             foreach ($data['programs'] as $program) {
                 $actor->addProgram($this->getReference($program));
             }

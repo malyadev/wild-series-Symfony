@@ -14,6 +14,7 @@
                         <th>Summary</th>
                         <th>Poster</th>
                         <th>Actions</th>
+                        <th>Slug</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,9 +25,11 @@
                             <td>{{ program.summary | striptags|slice(0, 150)|raw }}...</td>
                             <td>{{ program.poster | striptags|slice(0, 55)|raw  }}...</td>
                             <td>
-                                <a href="{{ path('program_show', {'id': program.id}) }}">Détails</a>
-                                <a href="{{ path('program_edit', {'id': program.id}) }}">Modifier</a>
+                                <a href="{{ path('program_show', {'slug': program.slug}) }}">Détails</a>
+                                <a href="{{ path('program_edit', {'slug': program.slug}) }}">Modifier</a>
                             </td>
+                            <td>{{ program.slug}}</td>
+
                         </tr>
                     {% else %}
                         <tr>
