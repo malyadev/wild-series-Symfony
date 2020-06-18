@@ -1,0 +1,10 @@
+{% apply inline_css(source('@css/email.css')) %}
+
+    <div class="title">
+        <h1 class="text-center">{{ slug }} débarque sur Wild Series !</h1>
+    </div>
+
+    <p><a href="http://127.0.0.1:8001/program/{{ slug }}">{{ program.title }}</a> vient d'être ajouté, viens vite découvrir la première saison !</p>
+
+
+{% endapply %}

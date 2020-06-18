@@ -1,0 +1,10 @@
+h1 {
+    color: whitesmoke;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(84, 16, 15, 0.89);
+    border-radius: 15px;
+}
