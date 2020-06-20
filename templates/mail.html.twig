@@ -1,0 +1,8 @@
+{% apply inline_css(source('@css/email.css')) %}
+
+    <div class="title">
+        <h1 class="text-center">{{ program.title }} débarque sur Wild Series !</h1>
+    </div>
+
+    <p><a href="{{ absolute_url(path('program_show', {'slug': program.slug})) }}">{{ program.title }}</a> vient d'être ajouté, viens vite découvrir la première saison !</p>
+{% endapply %}

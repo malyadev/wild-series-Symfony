@@ -1,0 +1,16 @@
+.title {
+    display: flex;
+    justify-content: center;
+    background-color: #7B0707;
+    border-radius: 15px;
+}
+
+.text-center {
+    color: whitesmoke;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #7B0707;
+}
