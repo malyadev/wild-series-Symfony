@@ -52,9 +52,7 @@ class ProgramController extends AbstractController
                 ->from($this->getParameter('mailer_from'))
                 ->to('d5ef83ed5dbb94@smtp.mailtrap')
                 ->subject('Alerte nouvelle série !')
-                ->htmlTemplate('mail.html.twig',
-                    ['programs' => $programRepository->findBy(
-                        [])]);
+                ->html( $content = $this->renderView('mail.html.twig', ['program' => $program]));
 
             $mailer->send($email);
 
