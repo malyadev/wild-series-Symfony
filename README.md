@@ -2,8 +2,6 @@
 
 # Pensez bien à vous mettre sur la bonne branche pour corriger, chacune d'entre elle correspond à une quête de l'expédition ;) #
 
-Lien démo quête 17 : 
-https://drive.google.com/file/d/1UjfTri7H4HLPzxOitpkwrtHvML2ZduJK/view?usp=sharing
+Lien quête 19 : 
+https://drive.google.com/file/d/1F2YKku2LBsXy-gAZN-nQ1xs1aqlTVpet/view?usp=sharing
 
-Lien quête 18 : 
-https://drive.google.com/file/d/1HhvjKwQknF1BrV_JVuKwQnfpfHMcnLul/view?usp=sharing

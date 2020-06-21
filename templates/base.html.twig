@@ -48,11 +48,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('program_index')}}">Toutes nos séries</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('episode_index')}}">Tous nos épisodes</a>
+                        </li>
                     </ul>
 
 
-                    <span class="navbar-text">
-                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Connexion</button>
+                    <span class="navbar-text text-light">
+                        {% if app.user %}
+                            {{ app.user.username }}
+                            <a href="{{ path('app_logout') }}" class="btn btn-outline-secondary my-2 my-sm-0"> Se déconnecter</a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}" class="btn btn-outline-secondary my-2 my-sm-0"> Connexion</a>
+                        {% endif %}
                     </span>
                 </div>
             </nav>
